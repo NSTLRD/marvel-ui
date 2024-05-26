@@ -1,0 +1,49 @@
+<div class="container-fluid p-0">
+  <!-- Header with Marvel logo, navigation, and logout button -->
+  <header class="bg-danger text-white py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <img src="../../../assets/img/marvel.png" alt="Marvel" class="marvel-logo" />
+      <!-- Right-aligned button for logout -->
+      <div>
+        <button class="btn btn-outline-light me-2" routerLink="/request-log">View Logs</button>
+        <button class="btn btn-outline-light" (click)="logout()">Log Out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Greeting and Last Login -->
+  <div class="bg-light py-4">
+    <div class="container">
+      <h3>Buenas tardes, {{ userName }}</h3>
+      <p>Último ingreso: {{ lastLoginDate | date:'short' }}</p>
+    </div>
+  </div>
+
+  <!-- Characters Card -->
+  <div class="container my-4">
+    <div class="card shadow h-100">
+      <div class="card-header bg-white">
+        <h4 class="mb-0">Personajes de Marvel</h4>
+      </div>
+      <div class="card-body">
+        <ng-container *ngIf="characters.length > 0; else noCharacters">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let character of characters">
+              <div class="card mb-4" (click)="openCharacterDialog(character)">
+                <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" class="card-img-top" alt="{{ character.name }}">
+                <div class="card-body">
+                  <h5 class="card-title">{{ character.name }}</h5>
+                  <p class="card-text">{{ character.description || 'No description available' }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #noCharacters>
+          <p class="text-muted">No se encontraron personajes.</p>
+        </ng-template>
+        <div #scrollAnchor></div>
+      </div>
+    </div>
+  </div>
+</div>

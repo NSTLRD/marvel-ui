@@ -1,0 +1,30 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card login-card">
+    <div class="card-body">
+      <img src="../../../assets/img/marvel.png" alt="Logo" class="mb-4" />
+      <h3 class="text-center">Bienvenidos a Marvel </h3>
+      <div *ngIf="errorMsg.length > 0" class="alert alert-danger" role="alert">
+        <p *ngFor="let msg of errorMsg">{{ msg }}</p>
+      </div>
+      <div class="mb-3">
+        <label for="login" class="form-label visually-hidden">Usuario o número de tarjeta</label>
+        <input [(ngModel)]="loginRequest.email" type="text" class="form-control" id="login" placeholder="Email">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label visually-hidden">Contraseña</label>
+        <input [(ngModel)]="loginRequest.password" type="password" class="form-control" id="password" placeholder="Contraseña" required="password">
+      </div>
+      <div class="d-grid gap-2">
+        <button (click)="login()" type="button" class="btn btn-danger">
+         Log in
+        </button>
+        <a href="#" class="link-secondary text-decoration-none text-center">¿Olvidaste tu nombre de usuario o contraseña?</a>
+      </div>
+      <hr>
+      <p class="text-center mt-3">
+        ¿Nuevo en Marvel?&nbsp;
+        <a (click)="navigateToRegister()" class="link-primary text-decoration-none" style="cursor: pointer;">Regístrate ahora</a>
+      </p>
+    </div>
+  </div>
+</div>

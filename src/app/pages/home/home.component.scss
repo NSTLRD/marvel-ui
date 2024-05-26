@@ -1,0 +1,44 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/@fortawesome/fontawesome-free/css/all';
+
+/* Custom styles */
+.marvel-logo {
+  height: 75px;
+  width: auto;
+}
+
+.card {
+  border-radius: .25rem;
+  border: 1px solid rgba(0,0,0,.125);
+
+  &.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  }
+
+  .card-header {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+  }
+
+  .card-body {
+    background: #f8f9fa;
+  }
+
+
+
+  .card-img-top {
+    width: 35%; // Ensure image takes full width of its container
+    height: 300px; // Set a fixed height for images
+    object-fit: cover; // Ensures image covers the container without distortion
+    display: block; // For centering purposes
+    margin: 0 auto; // Center the image
+  }
+
+  .list-group-item {
+    border-left: 3px solid transparent;
+    &:hover {
+      background: #f8f9fa;
+      border-left: 3px solid #007bff;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.activation-container {
+  height: 100vh;
+}
+
+.activation-card {
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  background: #fff;
+  border-radius: 4px;
+}
+
+/* You might need to adjust the path for your logo */
+img {
+  max-width: 100px;
+}
+
+input.form-control {
+  margin-bottom: 1rem;
+  padding: .375rem .75rem;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+}
+
+button.btn {
+  padding: .375rem .75rem;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: .25rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+
+  &:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+}

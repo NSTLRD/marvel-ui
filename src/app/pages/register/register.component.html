@@ -1,0 +1,66 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card register-card">
+    <div class="card-body">
+      <img src="../../../assets/img/mask.png" alt="Logo" class="mb-4" />
+      <h3 class="text-center mb-4">Información personal</h3>
+      <div *ngIf="errorMsg.length" class="alert alert-danger" role="alert">
+        <ul>
+          <li *ngFor="let msg of errorMsg">{{ msg }}</li>
+        </ul>
+      </div>
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <!-- Name -->
+        <div class="mb-3 position-relative">
+          <input formControlName="name" type="text" class="form-control" placeholder="¿Cuál es tu nombre?" required>
+          <i class="bi" [ngClass]="{
+              'bi-check-circle-fill text-success': registerForm.get('name')?.valid,
+              'bi-x-circle-fill text-danger': registerForm.get('name')?.invalid && (registerForm.get('name')?.touched || registerForm.get('name')?.dirty)
+            }" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
+          </i>
+        </div>
+
+        <!-- Last Name -->
+        <div class="mb-3 position-relative">
+          <input formControlName="lastName" type="text" class="form-control" placeholder="¿Cuál es tu apellido?" required>
+          <i class="bi" [ngClass]="{
+              'bi-check-circle-fill text-success': registerForm.get('lastName')?.valid,
+              'bi-x-circle-fill text-danger': registerForm.get('lastName')?.invalid && (registerForm.get('lastName')?.touched || registerForm.get('lastName')?.dirty)
+            }" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
+          </i>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3 position-relative">
+          <input formControlName="email" type="email" class="form-control" placeholder="Correo electrónico" required>
+          <i class="bi" [ngClass]="{
+              'bi-check-circle-fill text-success': registerForm.get('email')?.valid,
+              'bi-x-circle-fill text-danger': registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)
+            }" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
+          </i>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3 position-relative">
+          <input formControlName="password" type="password" class="form-control" placeholder="Contraseña" required>
+          <i class="bi" [ngClass]="{
+              'bi-check-circle-fill text-success': registerForm.get('password')?.valid,
+              'bi-x-circle-fill text-danger': registerForm.get('password')?.invalid && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty)
+            }" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
+          </i>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="mb-3 position-relative">
+          <input formControlName="confirmPassword" type="password" class="form-control" placeholder="Confirmar Contraseña" required>
+          <i *ngIf="registerForm.get('confirmPassword')?.errors?.['mustMatch'] && (registerForm.get('confirmPassword')?.touched || registerForm.get('confirmPassword')?.dirty)" class="bi bi-x-circle-fill text-danger" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></i>
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-between">
+          <button type="button" class="btn btn-link text-secondary" (click)="goBack()">← Atrás</button>
+          <button type="submit" class="btn btn-primary">Continuar →</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

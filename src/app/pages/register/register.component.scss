@@ -1,0 +1,71 @@
+
+.register-card {
+  width: 100%;
+  max-width: 500px;
+
+  .error-input {
+    border-color: red !important;  /* Usamos !important para sobreescribir estilos de Bootstrap */
+  }
+
+  .phone-group {
+    display: flex;
+    gap: 10px;
+  }
+
+  .phone-group > .mb-3 {
+    flex: 1;
+  }
+
+  .card-body {
+    padding: 2rem;
+
+    h3 {
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+    }
+
+    img {
+      max-width: 100px; // Adjust as needed
+      display: block; // Makes it a block element
+      margin-left: auto; // Centers it horizontally
+      margin-right: auto; // Centers it horizontally
+      border-radius: 50%; // Makes it round
+      // Add additional styles for a border if needed
+      border: 2px solid #fff; // Example border, adjust color as needed
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); // Optional: adds shadow for depth
+    }
+
+    .form-control, .form-select {
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      &::placeholder {
+        color: #adb5bd;
+      }
+    }
+
+    .btn-primary {
+      color: #fff;
+      background-color: #007bff;
+      border-color: #007bff;
+      &:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+      }
+    }
+
+    .btn-link {
+      font-weight: 400;
+      color: #6c757d;
+      text-decoration: none;
+
+      &:hover {
+        color: #5a6268;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Use the same utility classes for centering the card
